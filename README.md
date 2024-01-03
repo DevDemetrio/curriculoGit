@@ -35,6 +35,8 @@ O Design do projeto pode ser consultado em:
 
 
 
+
+
 ![Screenshot from 2024-01-02 21-42-39](https://github.com/DevDemetrio/curriculoGit/assets/81098797/b785a4df-647d-4b80-9a99-9782281b4ae1)
 
 
