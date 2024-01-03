@@ -7,6 +7,9 @@ Bem-vindo ao projeto "Currículo Git"! Este projeto visa proporcionar criar um c
 O Design do projeto pode ser consultado em:
 [CurriculoGit](https://marvelapp.com/prototype/9b662g7/screen/76186368/handoff)
 
+A descrição do dessafio em:
+[curriculoGitDescrição](https://github.com/devmozao/desafio-reactjs)
+
 ## Tecnologias Utilizadas:
 
 1. **ReactJS:**
