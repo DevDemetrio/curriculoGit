@@ -1,15 +1,27 @@
 import {styled} from "styled-components"
+import ContainerPhoto from "../ContainerPhoto";
 
-const SiderBar = styled.header`
-    background-color: aqua;
+
+const Bar = styled.header`
+  width: 28.125rem;
+  height: 64rem;
+  padding-top: 30px;
+  background-color: #3b4252;  
+
+`
+const DevName = styled.h1`
+  display: block;
+  
 `
 
-
-const SideBar = () =>{
+const SideBar = ({photo, name}) =>{
     return(
-    <SideBar>
-        <h1>teste</h1>
-    </SideBar>
+    <Bar>
+      <ContainerPhoto photo={photo}/>
+      <DevName>
+        {name}
+      </DevName>
+    </Bar>
     )
 
 }
