@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   /* Reset styles for specific elements */
-  div, header, section, article, nav, aside, footer,p,html,body,h1 {
+  div, header, section, article, nav, aside, footer,p,html,body,h1, h2, p {
     margin: 0;
     padding: 0;
     box-sizing: border-box;

@@ -9,18 +9,20 @@ const Bar = styled.header`
   background-color: #3b4252;  
 
 `
-const DevName = styled.h1`
+const DevDescription = styled.section`
   display: block;
-  
 `
 
-const SideBar = ({photo, name}) =>{
+const SideBar = ({photo, name, socialName, description}) =>{
     return(
     <Bar>
       <ContainerPhoto photo={photo}/>
-      <DevName>
-        {name}
-      </DevName>
+      <DevDescription>
+        <h1>{name}</h1>
+        <h2>{socialName}</h2>
+        <p>{description}</p>
+        
+      </DevDescription>
     </Bar>
     )
 
