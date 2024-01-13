@@ -1,5 +1,8 @@
 import {styled} from "styled-components"
 import ContainerPhoto from "../ContainerPhoto";
+import SocialMedia from "../SocialMedia";
+import PersonalInformation from "../PersonalInformation";
+
 
 
 const Bar = styled.header`
@@ -11,18 +14,46 @@ const Bar = styled.header`
 `
 const DevDescription = styled.section`
   display: block;
+  margin: 0 auto;
+  padding: 0 50px;
+
+
+  p{
+    margin: 23px auto 23px auto;
+    color: #8190A5;
+  }
+  h1{
+    margin-top: 33px;
+    color: #ECEFF4;
+  }
+  span{
+    color: #ECEFF4;
+  }
 `
 
-const SideBar = ({photo, name, socialName, description}) =>{
+
+const SideBar = ({photo, name, socialName, description, 
+                  followrs, following, stars, organization, location, email, webSite, twitter }) =>{
     return(
     <Bar>
       <ContainerPhoto photo={photo}/>
       <DevDescription>
         <h1>{name}</h1>
-        <h2>{socialName}</h2>
+        <span>{socialName}</span>
         <p>{description}</p>
-        
       </DevDescription>
+      <SocialMedia followrs={followrs}  
+                   following={following} 
+                   stars={stars}/>
+      <PersonalInformation organization={organization} 
+                           location={location} 
+                           email={email} 
+                           webSite={webSite} 
+                           twitter={twitter}
+                           
+                           
+      />
+  
     </Bar>
     )
 
