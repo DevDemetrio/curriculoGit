@@ -1,8 +1,18 @@
 import GlobalStyles from './components/EstilosGlobais'
+import RepoDescription from './components/RepoDescription'
 import SideBar from './components/SideBar'
+
+
+import {styled} from "styled-components";
 
 import { useState } from 'react'
 
+
+const ContainerMain = styled.main`
+  display: flex;
+  gap: 70px;
+  background-color: antiquewhite;
+`
 
 
 function App() {
@@ -25,8 +35,12 @@ const [webSite, setWebSite] = useState("www.devdemetrio.com");
 const [twitter, setTwitter] = useState("devDemetrio");
 
 
+/*Repository Information */
+const [uploadDay, setUploadDay] = useState("update 30 day 30 ago")
+
+
   return (
-    <div>
+    <ContainerMain>
     <GlobalStyles />
     <SideBar 
       photo={photo} name={name} 
@@ -43,7 +57,8 @@ const [twitter, setTwitter] = useState("devDemetrio");
       twitter={twitter}
       
       />
-    </div>
+      <RepoDescription name={name} description={description} uploadDay={uploadDay}/>
+    </ContainerMain>
   )
 }
 
