@@ -17,8 +17,7 @@ const ContainerImg = styled.div`
     color: #ECEFF4;
     img{
         width: 15px;
-        height: 15px;
-       
+        height: 15px; 
     }
     span{
         margin: 0 4px 0 4px;

@@ -5,7 +5,7 @@ import SideBar from './components/SideBar'
 
 import {styled} from "styled-components";
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 const ContainerMain = styled.main`
@@ -17,8 +17,10 @@ const ContainerMain = styled.main`
 
 function App() {
 
+
+const url = "https://api.github.com/users/devdemetrio"
 const [photo, setPhoto] = useState("https://avatars.githubusercontent.com/u/81098797?v=4")
-const [name, serName] = useState("Demétrio do Nascimento Lopes")
+const [name, setName] = useState()
 const [socialName, setSocialName] = useState("@username")
 const [description, setDescription] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt congue ligula in rutrum. Morbi nec lacus condimentum, hendrerit mi eu, feugiat.")
 
@@ -38,12 +40,22 @@ const [twitter, setTwitter] = useState("devDemetrio");
 /*Repository Information */
 const [uploadDay, setUploadDay] = useState("update 30 day 30 ago")
 
+useEffect(() =>{
+    async function getData(){
+      const res = await fetch(url)
+      const data = await res.json()
+
+      setName(data);
+    }
+
+    getData();
+},[])
 
   return (
     <ContainerMain>
     <GlobalStyles />
     <SideBar 
-      photo={photo} name={name} 
+      photo={photo} name={name.login} 
       socialName={socialName} 
       description={description}
       followrs={followrs}
