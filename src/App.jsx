@@ -20,9 +20,9 @@ function App() {
 
 const url = "https://api.github.com/users/devdemetrio"
 const [photo, setPhoto] = useState("https://avatars.githubusercontent.com/u/81098797?v=4")
-const [name, setName] = useState()
+const [name, setName] = useState("")
 const [socialName, setSocialName] = useState("@username")
-const [description, setDescription] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt congue ligula in rutrum. Morbi nec lacus condimentum, hendrerit mi eu, feugiat.")
+const [description, setDescription] = useState(" ")
 
 /*Social Media */
 const [followrs, setFallowrs] = useState(200);
@@ -40,22 +40,29 @@ const [twitter, setTwitter] = useState("devDemetrio");
 /*Repository Information */
 const [uploadDay, setUploadDay] = useState("update 30 day 30 ago")
 
+
 useEffect(() =>{
-    async function getData(){
-      const res = await fetch(url)
-      const data = await res.json()
+  async function getData(){
+    const res = await fetch(url)
+    const data = await res.json()
 
-      setName(data);
-    }
+    setName(data.name);
+    setDescription(data.bio)
+    setSocialName(data.login)
+    setFollowing(data.followers_url.length())
 
-    getData();
+  }
+
+  getData();
 },[])
+
+
 
   return (
     <ContainerMain>
     <GlobalStyles />
     <SideBar 
-      photo={photo} name={name.login} 
+      photo={photo} name={name} 
       socialName={socialName} 
       description={description}
       followrs={followrs}
