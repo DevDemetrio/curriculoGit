@@ -6,6 +6,7 @@ import SideBar from './components/SideBar'
 import {styled} from "styled-components";
 
 import { useState, useEffect } from 'react'
+import AccountantUser from './components/AccountantUser';
 
 
 const ContainerMain = styled.main`
@@ -17,21 +18,27 @@ const ContainerMain = styled.main`
 
 function App() {
 
+const user = "gabriel-assana"
+const url = `https://api.github.com/users/${user}`
+const urlFollowers = `https://api.github.com/users/${user}/followers`
+const urlFollowing = `https://api.github.com/users/${user}/following`
 
-const url = "https://api.github.com/users/devdemetrio"
-const [photo, setPhoto] = useState("https://avatars.githubusercontent.com/u/81098797?v=4")
+
+
+
+const [photo, setPhoto] = useState(" ")
 const [name, setName] = useState("")
 const [socialName, setSocialName] = useState("@username")
 const [description, setDescription] = useState(" ")
 
 /*Social Media */
-const [followrs, setFallowrs] = useState(200);
-const [following, setFollowing] = useState(130);
+const [followrs, setFallowrs] = useState();
+const [following, setFollowing] = useState();
 const [stars, setStart] = useState(100);
 
 /*Personal Information */
 const [organization, setOrganization] = useState('empresa');
-const [location, setLocation] = useState('Boa Vista');
+const [location, setLocation] = useState('');
 const [email, setEmail] = useState("devdemetrio@gmail.com");
 const [webSite, setWebSite] = useState("www.devdemetrio.com");
 const [twitter, setTwitter] = useState("devDemetrio");
@@ -42,17 +49,44 @@ const [uploadDay, setUploadDay] = useState("update 30 day 30 ago")
 
 
 useEffect(() =>{
+  async function getFollowers(){
+    const res = await fetch(urlFollowers)
+    const followers = await res.json()
+    setFallowrs(followers.length)
+  }
+  getFollowers()
+},[])
+
+useEffect(() =>{
+  async function getFollowing(){
+    const res = await fetch(urlFollowing)
+    const following =  await res.json();
+
+    setFollowing(following.length)
+  }
+
+  getFollowing()
+},[])
+
+useEffect(() =>{
   async function getData(){
     const res = await fetch(url)
     const data = await res.json()
+     
+    setPhoto(data.avatar_url)
 
     setName(data.name);
     setDescription(data.bio)
     setSocialName(data.login)
-    setFollowing(data.followers_url.length())
+
+    setLocation(data.location)
+    setWebSite(data.blog)
+
+    setFollowing(data.following)
+    setFallowrs(data.followers)
+
 
   }
-
   getData();
 },[])
 
@@ -76,7 +110,9 @@ useEffect(() =>{
       twitter={twitter}
       
       />
+      {console.log(urlFollowing)}
       <RepoDescription name={name} description={description} uploadDay={uploadDay}/>
+      <AccountantUser />
     </ContainerMain>
   )
 }
