@@ -21,10 +21,13 @@ const SectionRepo = styled.section`
     
 `
 
-const RepoDescription = ({name, description, uploadDay}) =>{
+const RepoDescription = ({repoName, description, uploadDay}) =>{
     return(
         <SectionRepo>
-        <h2>{name}</h2>
+        {!repoName && repoName.map((item, index) =>(
+            <h2 key={index}>{item}</h2> 
+            ))    
+        }
         <p>{description}</p>
         <div>
         <img src={starsImg} alt="" />

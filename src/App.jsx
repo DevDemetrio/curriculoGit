@@ -18,10 +18,11 @@ const ContainerMain = styled.main`
 
 function App() {
 
-const user = "gabriel-assana"
+const user = "devdemetrio"
 const url = `https://api.github.com/users/${user}`
 const urlFollowers = `https://api.github.com/users/${user}/followers`
 const urlFollowing = `https://api.github.com/users/${user}/following`
+const urlRepos =`https://api.github.com/users/${user}/repos`
 
 
 
@@ -46,6 +47,9 @@ const [twitter, setTwitter] = useState("devDemetrio");
 
 /*Repository Information */
 const [uploadDay, setUploadDay] = useState("update 30 day 30 ago")
+
+/*Repository Description */
+const [repoName, setRepoName] = useState('');
 
 
 useEffect(() =>{
@@ -90,7 +94,19 @@ useEffect(() =>{
   getData();
 },[])
 
+useEffect(() =>{
+async function getRepos(){
+    const res = await fetch(urlRepos);
+    const  data = await res.json(); 
 
+    const repoNames = data.map(repo => repo.name)
+
+    setRepoName(repoNames)
+
+}
+    getRepos()
+    
+},[]);
 
   return (
     <ContainerMain>
@@ -111,7 +127,8 @@ useEffect(() =>{
       
       />
       {console.log(urlFollowing)}
-      <RepoDescription name={name} description={description} uploadDay={uploadDay}/>
+      <RepoDescription 
+      name={repoName} description={repoName} uploadDay={uploadDay}/>
       <AccountantUser />
     </ContainerMain>
   )
