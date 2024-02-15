@@ -52,6 +52,7 @@ const [uploadDay, setUploadDay] = useState("update 30 day 30 ago")
 const [repoName, setRepoName] = useState('');
 
 
+
 useEffect(() =>{
   async function getFollowers(){
     const res = await fetch(urlFollowers)
@@ -99,9 +100,7 @@ async function getRepos(){
     const res = await fetch(urlRepos);
     const  data = await res.json(); 
 
-    const repoNames = data.map(repo => repo.name)
-
-    setRepoName(repoNames)
+    setRepoName(data)
 
 }
     getRepos()
@@ -126,9 +125,10 @@ async function getRepos(){
       twitter={twitter}
       
       />
-      {console.log(urlFollowing)}
+  
       <RepoDescription 
-      name={repoName} description={repoName} uploadDay={uploadDay}/>
+      repoName={repoName} 
+      />
       <AccountantUser />
     </ContainerMain>
   )

@@ -9,10 +9,6 @@ const SectionRepo = styled.section`
         font-size: 40px;
     }
 
-    div{
-        display: flex;
-        gap: 10px;
-    }
     div img{
         display: block;
         width: 20px;
@@ -21,18 +17,21 @@ const SectionRepo = styled.section`
     
 `
 
-const RepoDescription = ({repoName, description, uploadDay}) =>{
+const RepoDescription = ({repoName}) =>{
     return(
         <SectionRepo>
-        {!repoName && repoName.map((item, index) =>(
-            <h2 key={index}>{item}</h2> 
-            ))    
-        }
-        <p>{description}</p>
-        <div>
-        <img src={starsImg} alt="" />
-            <p>{uploadDay}</p>
-        </div>
+       
+            {repoName && repoName.map((item) =>(
+                <div key={item.id}>
+                    <h3 >{item.name}</h3>
+                    <p>{item.description}</p>
+                    <p>{item.updated_at}</p>
+                    <hr />
+                </div>
+            ))}
+
+
+            
         </SectionRepo>
     )
 }
