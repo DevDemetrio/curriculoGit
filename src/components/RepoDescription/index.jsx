@@ -4,6 +4,7 @@ import starsImg from '../../assets/icones/star2.png'
 
 const SectionRepo = styled.section`
     margin-top: 25px;
+ 
 
     h2{
         font-size: 40px;
@@ -14,7 +15,10 @@ const SectionRepo = styled.section`
         width: 20px;
         height: 20px; 
     }
-    
+    div  {
+        border-bottom: 1px solid #000000;
+    }
+  
 `
 
 const RepoDescription = ({repoName}) =>{
@@ -26,7 +30,7 @@ const RepoDescription = ({repoName}) =>{
                     <h3 >{item.name}</h3>
                     <p>{item.description}</p>
                     <p>{item.updated_at}</p>
-                    <hr />
+                
                 </div>
             ))}
 

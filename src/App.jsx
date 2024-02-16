@@ -12,7 +12,7 @@ import AccountantUser from './components/AccountantUser';
 const ContainerMain = styled.main`
   display: flex;
   gap: 70px;
-  background-color: antiquewhite;
+  background: #FAFAFA;;
 `
 
 
