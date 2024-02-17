@@ -16,7 +16,7 @@ const PhotoStyle = styled.div`
 const ContainerPhoto = ({photo}) =>{
     return(
         <PhotoStyle>
-            <img src={photo} alt="teste" />
+            <img src={photo} alt="Foto de perfil vinda do github" />
         </PhotoStyle>
     )
 }

@@ -6,7 +6,7 @@ import SideBar from './components/SideBar'
 import {styled} from "styled-components";
 
 import { useState, useEffect } from 'react'
-import AccountantUser from './components/AccountantUser';
+
 
 
 const ContainerMain = styled.main`
@@ -55,9 +55,14 @@ const [repoName, setRepoName] = useState('');
 
 useEffect(() =>{
   async function getFollowers(){
-    const res = await fetch(urlFollowers)
-    const followers = await res.json()
-    setFallowrs(followers.length)
+    try {
+      const res = await fetch(urlFollowers)
+      const followers = await res.json()
+      setFallowrs(followers.length)
+    } catch (error) {
+      {console.log(`url digitada errada ${error}`)}
+    }
+   
   }
   getFollowers()
 },[])
@@ -129,7 +134,6 @@ async function getRepos(){
       <RepoDescription 
       repoName={repoName} 
       />
-      <AccountantUser />
     </ContainerMain>
   )
 }
