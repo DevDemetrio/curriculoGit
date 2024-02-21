@@ -2,6 +2,8 @@ import GlobalStyles from './components/EstilosGlobais'
 import RepoDescription from './components/RepoDescription'
 import SideBar from './components/SideBar'
 
+import { useFetch } from './hooks/useFetch';
+
 
 import {styled} from "styled-components";
 
@@ -25,8 +27,6 @@ const urlFollowing = `https://api.github.com/users/${user}/following`
 const urlRepos =`https://api.github.com/users/${user}/repos`
 
 
-
-
 const [photo, setPhoto] = useState(" ")
 const [name, setName] = useState("")
 const [socialName, setSocialName] = useState("@username")
@@ -40,7 +40,7 @@ const [stars, setStart] = useState(100);
 /*Personal Information */
 const [organization, setOrganization] = useState('empresa');
 const [location, setLocation] = useState('');
-const [email, setEmail] = useState("devdemetrio@gmail.com");
+const [email, setEmail] = useState(" ");
 const [webSite, setWebSite] = useState("www.devdemetrio.com");
 const [twitter, setTwitter] = useState("devDemetrio");
 
@@ -53,19 +53,30 @@ const [repoName, setRepoName] = useState('');
 
 
 
+
+const {data: followersData} = useFetch(urlFollowers);
 useEffect(() =>{
-  async function getFollowers(){
-    try {
-      const res = await fetch(urlFollowers)
-      const followers = await res.json()
-      setFallowrs(followers.length)
-    } catch (error) {
-      {console.log(`url digitada errada ${error}`)}
-    }
-   
+  if(followersData){
+    setFallowrs(followersData.length)
   }
-  getFollowers()
-},[])
+  
+},[followersData])
+
+//useEffect(() =>{
+//  async function getFollowers(){
+//    try {
+//      const res = await fetch(urlFollowers)
+//      const followers = await res.json()
+//      setFallowrs(followers.length)
+//    } catch (error) {
+//  
+//        console.log(error)
+//      }
+//    
+//   
+//  }
+//  getFollowers()
+//},[])
 
 useEffect(() =>{
   async function getFollowing(){
