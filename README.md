@@ -30,8 +30,6 @@ A descrição do dessafio em:
 2. **Construção Dinâmica do Currículo:**
    - Com base nos dados obtidos, a aplicação constrói dinamicamente um currículo interativo, proporcionando uma visualização clara e estruturada das informações.
 
-3. **Personalização Visual:**
-   - A estilização usando Styled-Components permite uma personalização
 
 #Imagens do projeto:  
   
