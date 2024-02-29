@@ -2,7 +2,8 @@
 
 ## Introdução:
 
-Bem-vindo ao projeto "Currículo Git"! Este projeto visa proporcionar criar um currílo apartir das informaçõs contida no perfil do gitgub, utilizando tecnologias como ReactJS, API REST e Styled-Components. A proposta é criar uma aplicação dinâmica e interativa.
+Bem-vindo ao projeto 'Currículo Git'! Este projeto visa proporcionar a criação de um currículo a partir das informações contidas no perfil do GitHub. No projeto foram utilizadas as seguintes tecnologias: ReactJS, API REST e Styled-Components. 
+Assim, a aplicação pode ser usada como busca de desenvolvedores, ao pesquisar por um desenvolvedor válido, ela deverá criar um currículo com informações fornecidas pelo GitHub.
 
 O Design do projeto pode ser consultado em:
 [CurriculoGit](https://marvelapp.com/prototype/9b662g7/screen/76186368/handoff)
