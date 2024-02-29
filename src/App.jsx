@@ -8,6 +8,7 @@ import { useFetch } from './hooks/useFetch';
 import {styled} from "styled-components";
 
 import { useState, useEffect } from 'react'
+import Home from './pages/Home';
 
 
 
@@ -125,6 +126,7 @@ async function getRepos(){
 
   return (
     <ContainerMain>
+    <Home />      
     <GlobalStyles />
     <SideBar 
       photo={photo} name={name} 
